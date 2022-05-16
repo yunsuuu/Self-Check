@@ -1,14 +1,16 @@
 const $wrapper = document.querySelector(".wrapper");
 
-const total = 12;
-const poster = [
+const total = Number(prompt("카드 개수를 짝수로 입력하세요!", "* 최대 12 *"));
+const posters = [
   "0.jpeg", "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg"
 ];
-let posterCopy = poster.concat(poster);
+let posterSlice = posters.slice(0, total / 2);
+let posterCopy = posterSlice.concat(posterSlice);
 let shuffled = [];
 let clicked = [];
 let completed = [];
 let clickable = false;
+let startTime;
 
 function shuffle() {
   for (let i = 0; posterCopy.length > 0; i++) {
@@ -56,8 +58,9 @@ function onClickCard() {
     if(completed.length !== total) {
       return;
     }
+    const endTime = new Date();
     setTimeout(() => {
-      alert("성공!");
+      alert(`성공 🥳 ${Math.floor((endTime - startTime) / 1000)}초 걸렸습니다!`);
       resetGame();
     }, 500);
     return;
@@ -72,6 +75,9 @@ function onClickCard() {
 }
 
 function startGame() {
+  if(total > 12) {
+    return;
+  }
   clickable = false;
   shuffle();
   for (let i = 0; i < total; i++) {
@@ -92,13 +98,14 @@ function startGame() {
     });
     // 카드가 모두 뒤집힌 후 클릭할 수 있게
     clickable = true;
+    startTime = new Date();
   }, 5000);
 }
 startGame();
 
 function resetGame() {
   $wrapper.innerHTML = "";
-  posterCopy = poster.concat(poster);
+  posterCopy = posters.concat(posters);
   shuffled = [];
   completed = [];
   startGame();
