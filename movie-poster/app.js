@@ -8,6 +8,7 @@ let posterCopy = poster.concat(poster);
 let shuffled = [];
 let clicked = [];
 let completed = [];
+let clickable = false;
 
 function shuffle() {
   for (let i = 0; posterCopy.length > 0; i++) {
@@ -37,6 +38,10 @@ function createCard(i) {
 }
 
 function onClickCard() {
+  if(!clickable || completed.includes(this) || clicked[0] === this) {
+    // 클릭할 수 없는 상황 || 클릭한 카드가 완료배열에 들어있을 때 || 카드를 처음 클릭했을 때
+    return; // 카드를 다시 뒤집지 못하게 함수종료
+  }
   this.classList.toggle("flipped"); // this = 클릭한 카드
   clicked.push(this);
   if(clicked.length !== 2) {
@@ -57,14 +62,17 @@ function onClickCard() {
     }, 500);
     return;
   }
+  clickable = false; // 카드 4개 동시 클릭 방지
   setTimeout(() => {
     clicked[0].classList.remove("flipped");
     clicked[1].classList.remove("flipped");
     clicked = [];
+    clickable = true;
   }, 500);
 }
 
 function startGame() {
+  clickable = false;
   shuffle();
   for (let i = 0; i < total; i++) {
     const card = createCard(i);
@@ -82,6 +90,8 @@ function startGame() {
     document.querySelectorAll(".card").forEach((card) => {
       card.classList.remove("flipped");
     });
+    // 카드가 모두 뒤집힌 후 클릭할 수 있게
+    clickable = true;
   }, 5000);
 }
 startGame();
