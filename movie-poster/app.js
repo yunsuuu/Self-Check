@@ -7,6 +7,7 @@ const poster = [
 let posterCopy = poster.concat(poster);
 let shuffled = [];
 let clicked = [];
+let completed = [];
 
 function shuffle() {
   for (let i = 0; posterCopy.length > 0; i++) {
@@ -38,10 +39,29 @@ function createCard(i) {
 function onClickCard() {
   this.classList.toggle("flipped"); // this = 클릭한 카드
   clicked.push(this);
-  // if(clicked.length !== 2) {
-  //   return;
-  // }
-  console.log(clicked[0]);
+  if(clicked.length !== 2) {
+    return;
+  }
+  const firstBackImg = clicked[0].querySelector(".card-back").style.backgroundImage; // url("./img/0.jpeg")
+  const secondBackImg = clicked[1].querySelector(".card-back").style.backgroundImage;
+  if(firstBackImg === secondBackImg) {
+    completed.push(clicked[0]);
+    completed.push(clicked[1]);
+    clicked = [];
+    if(completed.length !== total) {
+      return;
+    }
+    setTimeout(() => {
+      alert("성공!");
+      resetGame();
+    }, 500);
+    return;
+  }
+  setTimeout(() => {
+    clicked[0].classList.remove("flipped");
+    clicked[1].classList.remove("flipped");
+    clicked = [];
+  }, 500);
 }
 
 function startGame() {
@@ -65,3 +85,11 @@ function startGame() {
   }, 5000);
 }
 startGame();
+
+function resetGame() {
+  $wrapper.innerHTML = "";
+  posterCopy = poster.concat(poster);
+  shuffled = [];
+  completed = [];
+  startGame();
+}
