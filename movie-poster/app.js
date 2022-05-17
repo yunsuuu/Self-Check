@@ -75,9 +75,6 @@ function onClickCard() {
 }
 
 function startGame() {
-  if(total > 12) {
-    return;
-  }
   clickable = false;
   shuffle();
   for (let i = 0; i < total; i++) {
