@@ -9,8 +9,9 @@ body {
 }
 
 .wrapper {
-  width: 90%;
-  height: 500px;
+  border: 2px solid blue;
+  width: 60%;
+  /* height: 500px; */
   margin: 30px auto;
 }
 
@@ -18,8 +19,8 @@ body {
   display: inline-block;
   width: 150px;
   height: 200px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 30px;
+  margin-bottom: 30px;
 }
 
 .card-inner {
