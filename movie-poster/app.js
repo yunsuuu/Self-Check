@@ -1,10 +1,16 @@
+// prompt 입력값 없이 엔터치면 prompt창 다시
+// prompt창에 12 이하 짝수만 입력, 아닐시 alert
+
 const $wrapper = document.querySelector(".wrapper");
 const total = Number(prompt("카드 개수를 짝수로 입력하세요!", "최대 12"));
 const posters = [
   "0.jpeg", "1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg"
 ];
 
-if(total) {
+if(!total) {
+  alert("카드 개수를 짝수로 입력해 주세요!");
+  // alert 다음 prompt창 다시
+} else { // 12 이하 짝수 입력하면 아래 코드 실행
   let posterSlice = posters.slice(0, total / 2);
   let posterCopy = posterSlice.concat(posterSlice);
   let shuffled = [];
@@ -108,6 +114,4 @@ if(total) {
     completed = [];
     startGame();
   }
-} else {
-  alert("카드 개수를 짝수로 입력해 주세요!");
 }
