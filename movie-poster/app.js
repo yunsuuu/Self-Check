@@ -30,7 +30,7 @@ function createCard(i) {
   cardFront.innerText = "Poster Card";
   const cardBack = document.createElement("div");
   cardBack.className = "card-back";
-  const posterUrl = `./img/${shuffled[i]}`;
+  const posterUrl = `/img/${shuffled[i]}`;
   cardBack.style.backgroundImage = `url(${posterUrl})`;
   cardInner.appendChild(cardFront);
   cardInner.appendChild(cardBack);
