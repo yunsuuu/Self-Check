@@ -16,18 +16,6 @@ body {
   background-color: #f4f7fa;
 }
 
-img {
-  width: 220px;
-  height: 300px;
-  margin: 0 6px;
-  box-shadow: 4px 4px 4px rgb(100, 100, 100);
-}
-
-h3 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
 section {
   width: 800px;
   height: 800px;
@@ -35,18 +23,14 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   background-color: lightblue;
 }
 
 header {
   font-size: 50px;
   width: 80%;
-}
-
-h1 {
-  margin-top: -4px;
-  font-family: 'Do Hyeon', sans-serif;
+  height: 180px;
 }
 
 .icon-wrap {
@@ -79,6 +63,11 @@ h1 {
   z-index: -1;
 }
 
+h1 {
+  margin-top: -4px;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
 .info {
   margin: 20px 0;
   padding: 20px;
@@ -86,8 +75,21 @@ h1 {
   background-color: lightpink;
 }
 
+h3 {
+  font-size: 40px;
+  font-family: 'Nanum Brush Script', cursive;
+  margin-bottom: 10px;
+}
+
 .poster {
   border-radius: 12px;
   padding: 20px;
   background-color: lightpink;
+}
+
+img {
+  width: 220px;
+  height: 300px;
+  margin: 0 6px;
+  box-shadow: 4px 4px 4px rgb(100, 100, 100);
 }
