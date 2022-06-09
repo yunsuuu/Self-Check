@@ -1,5 +1,5 @@
 const $img = document.querySelector(".img-wrap");
 function onClick(e) {
-  console.log("클릭");
+  window.open("detail.html");
 }
 $img.addEventListener("click", onClick);
