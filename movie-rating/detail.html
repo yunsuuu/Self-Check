@@ -4,9 +4,82 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/6925fa6480.js" crossorigin="anonymous"></script>
+  <script src="detail.js" defer></script>
   <title>Detail</title>
+  <style>
+    body {
+      padding: 100px;
+      text-align: center;
+      background-color: beige;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 40px;
+      padding: 8px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background-color: lightblue;
+    }
+
+    img {
+      width: 250px;
+      height: 350px;
+    }
+
+    input {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid lightgray;
+      border-radius: 8px;
+      color: lightgray;
+    }
+
+    input:focus::placeholder {
+      color: transparent;
+    }
+
+    .form button {
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      color: white;
+      background-color: lightgray;
+    }
+
+    ul {
+      width: 250px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      margin: 10px auto;
+    }
+
+    li {
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h3>Hello</h3>
+  <button class="back-btn">
+    <i class="fa-solid fa-arrow-rotate-left"></i>
+  </button>
+  <div>
+    <img src="/img/0.jpeg">
+    <h3 class="title"><캐롤></h3>
+  </div>
+  <form class="form">
+    <input type="text" placeholder="20자평을 적어주세요" spellCheck="false" required>
+    <button type="submit">입력</button>
+  </form>
+  <ul class="list-ul">
+    <!-- <li></li> -->
+  </ul>
 </body>
 </html>
